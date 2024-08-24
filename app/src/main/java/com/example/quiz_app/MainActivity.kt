@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Quiz_AppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                    TriviaHome()
                 }
             }
         }

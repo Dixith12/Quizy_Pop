@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("kotlin-kapt")
+    alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.compose.compiler)
     id("com.google.dagger.hilt.android")
 }
 
@@ -41,9 +42,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -69,16 +67,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(libs.kotlinx.coroutines.android)
-
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-
-
-    implementation (libs.hilt.android.v244)
-    kapt (libs.hilt.compiler)
+    implementation (libs.hilt.android)
+    ksp (libs.hilt.compiler)
+    ksp(libs.hilt.android.compiler)
     implementation (libs.androidx.hilt.navigation.compose)
-
 
     implementation(libs.retrofit)
 
