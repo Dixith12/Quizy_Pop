@@ -25,5 +25,9 @@ class QuestionViewmodel @Inject constructor(private val repository: QuestionRepo
             data.value=repository.getAllFunction()
             if(data.value.data.toString().isNotEmpty()) data.value.loading=false
         }
+
+    }
+    fun getsize():Int{
+        return data.value.data?.toMutableList()?.size!!
     }
 }
