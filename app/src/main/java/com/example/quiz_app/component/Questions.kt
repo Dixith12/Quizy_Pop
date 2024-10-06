@@ -59,7 +59,13 @@ fun Questions(viewmodel: QuestionViewmodel) {
     Log.d("size","Questions: ${questions?.size}")
     if(viewmodel.data.value.loading==true)
     {
-        CircularProgressIndicator()
+
+        Column(verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth().fillMaxHeight()) {
+
+            CircularProgressIndicator()
+            Text(text = "Loading....")
+        }
     }
     else
     {
